@@ -1,22 +1,36 @@
 package com.eval.coronakit.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
+@Table(name="products")
 public class ProductMaster {
 	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
 	
+	@Column(name="productName")
+	@Size(min = 2,max=20,message = "Product name cannot be empty")
 	private String productName;
 	
+	@Column(name="cost")
+	@Min(value = 1,message = "Product cost must be more than or equal to 10")
 	private Integer cost;
 	
+	@Column(name="productDescription")
+	@NotNull(message = "Product description cannot be omitted")
+	@Size(min = 5,message = "Product description must be atleast 5 chars")
 	private String productDescription;
 	
 	public ProductMaster() {

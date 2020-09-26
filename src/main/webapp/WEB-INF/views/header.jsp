@@ -1,12 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<header>
+    <h1>Corona Kit Shopping Portal</h1>
+    <hr />
+    <nav>
+        <a href="${pageContext.request.contextPath}/home">Home</a> <span>|</span>
+        <c:choose>
+            <c:when test="${unm!=null && role=='ADMIN'}">
+                <a href="${pageContext.request.contextPath}/admin/list">Items List</a>
+                <span>|</span>
+                <a href="${pageContext.request.contextPath}/admin/newItem">Add New</a>
+                <span>|</span>
+                <a href="${pageContext.request.contextPath}/logout">Log Out</a>    
+            </c:when>
+            <c:when test="${unm!=null && role=='USER'}">
+                <a href="${pageContext.request.contextPath}/user/list">Items
+                    List</a>
+                <span>|</span>
+                <a href="${pageContext.request.contextPath}/logout">Log Out</a>
+            </c:when>
+            <c:otherwise>
+                <a href="${pageContext.request.contextPath}/login">Log In</a>
+                 <span>|</span>
+                <a href="${pageContext.request.contextPath}/login">New User</a>
+            </c:otherwise>
+        </c:choose>
+    </nav>
+    <hr />
+</header>

@@ -6,22 +6,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>login here</title>
 </head>
 <body>
 <core:if test="${param.error != null}">
 	<i>Invalid Credentials!!!</i>
 </core:if>
 
-<spring-form:form action="${pageContext.request.contextPath}/validate" method="POST">
+<spring-form:form action="${pageContext.request.contextPath}/login" method="POST">
 	<br/>
 	<br/>
 	<label>Enter user name</label>
-	<input type="text" name="username" />
+	<input type="text" name="unm" />
 	<br/>
 	<br/>
 	<label>Enter password</label>
-	<input type="password" name="password" />
+	<input type="password" name="pwd" />
 	<br/>
 	<br/>
 	<input type="submit" value="Login" />

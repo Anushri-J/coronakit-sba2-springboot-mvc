@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "users")
@@ -11,11 +12,15 @@ public class User {
 
 	
 	@Id
-	@Column(insertable = true)
+	@Column(insertable = true,name="unm", unique = true)
 	private String username;
 	
-	@Column
+	@Transient
 	private String password;
+	
+	 @Column(name="pwd")
+	 private String encodedPassword;
+	
 	@Column
 	private boolean enabled;
 	@Column
@@ -23,6 +28,9 @@ public class User {
 	
 	@Column
 	private String contact;
+	
+    @Column(name="role")
+	private String role;
 	
 	public String getUsername() {
 		return username;
@@ -53,6 +61,18 @@ public class User {
 	}
 	public void setContact(String contact) {
 		this.contact = contact;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getEncodedPassword() {
+		return encodedPassword;
+	}
+	public void setEncodedPassword(String encodedPassword) {
+		this.encodedPassword = encodedPassword;
 	}
 	
 	

@@ -1,19 +1,31 @@
 package com.eval.coronakit.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="kitDetail")
 public class KitDetail {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="coronaKitId")
 	private int coronaKitId;
+	
+	@Column(name="productId")
 	private int productId;
+	
+	@Column(name="quantity")
 	private int quantity;
+	
+	@Column(name="amount")
 	private int amount;
 	
 	public KitDetail() {
