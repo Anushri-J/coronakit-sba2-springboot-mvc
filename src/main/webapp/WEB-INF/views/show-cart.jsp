@@ -11,6 +11,8 @@
 <title>Shopping cart</title>
 </head>
 <body>
+<h2>Here is your final order</h2>
+<h4>Enter the delivery address and click on Checkout</h4>
 	<c:choose>
 		<c:when test="${kits==null || kits.isEmpty() }">
 			<p>No Products Found</p>

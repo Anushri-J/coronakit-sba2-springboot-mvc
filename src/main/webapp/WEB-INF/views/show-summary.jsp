@@ -6,19 +6,30 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Final Order Summary</title>
 </head>
 <body>
 <body>
+<h2>Thanks for shopping with us</h2>
+<h3>Here is your order summary</h3>
 	<c:choose>
 		<c:when test="${coronaKit==null }">
 			<p>Nothing to Order!</p>
 		</c:when>
 		<c:otherwise>
-		<p>Corona Kit ID ${coronaKit.id}</p>
-		 <p> OrderDate  ${coronaKit.orderDate}</p>
-		 <p> Delivery Address  ${coronaKit.deliveryAddress}</p>
-		 <p>Total Amount  ${coronaKit.totalAmount}</p>
+		<table border="1" cellspacing="5px" cellpadding="5px">
+		        <tr>
+					<th>Corona Kit ID</th>
+					<th>OrderDate</th>
+					<th>Delivery Address</th>
+					<th>Total Amount</th>
+				</tr>
+		     <tr>
+		      <td>${coronaKit.id}</td>
+		      <td>${coronaKit.orderDate} </td>
+		      <td>${coronaKit.deliveryAddress}</td>
+		      <td>${coronaKit.totalAmount}</td>
+		    </tr>
 		</c:otherwise>
 	</c:choose>
 
